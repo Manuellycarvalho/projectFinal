@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     btnOk:{
         marginTop:20,
         borderWidth:1,
-        borderRadius:10,
+        borderRadius:30,
         width:'50%',
         height:50,
         backgroundColor:'#FF69B4',

@@ -43,9 +43,10 @@ const styles = StyleSheet.create({
         borderRadius:10,
         marginTop:10,
         backgroundColor:'#FFE4E1',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        alignSelf: 'center' 
     },
-
+    
 
 })
 

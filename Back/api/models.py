@@ -1,4 +1,9 @@
 from django.db import models
+import uuid
+
+def upload_image(instance, filename):
+    return f"images/{uuid.uuid4()}--{filename}"
+
 
 class Cliente(models.Model):
     nome = models.CharField(max_length=255)
@@ -9,3 +14,4 @@ class Cliente(models.Model):
     cep = models.CharField(max_length=255)
     email= models.CharField(max_length=255)
     numero = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='images/')
