@@ -14,4 +14,5 @@ class Cliente(models.Model):
     cep = models.CharField(max_length=255)
     email= models.CharField(max_length=255)
     numero = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='images/',blank=True, null=True)
+

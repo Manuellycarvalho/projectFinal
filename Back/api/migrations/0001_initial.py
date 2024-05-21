@@ -23,6 +23,7 @@ class Migration(migrations.Migration):
                 ('cep', models.CharField(max_length=255)),
                 ('email', models.CharField(max_length=255)),
                 ('numero', models.CharField(max_length=255)),
+
             ],
         ),
     ]
