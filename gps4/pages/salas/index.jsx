@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Button, StyleSheet, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome'; // Você pode usar outros conjuntos de ícones, como Feather, MaterialIcons, etc.
 
-const Home = ({ navigation }) => {
+const salas = ({ navigation }) => {
   const handleSignOut = () => {
     // Implemente a lógica de saída, se necessário
     navigation.navigate('SignIn');
@@ -97,4 +97,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default salas;
