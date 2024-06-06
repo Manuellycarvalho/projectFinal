@@ -4,8 +4,8 @@ import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 import Icon from 'react-native-vector-icons/FontAwesome'; 
 import { useNavigation } from '@react-navigation/native';
+import styles from './styles';
 
-const { width, height } = Dimensions.get('window');
 
 export default function App() {
   const [location, setLocation] = useState(null);
@@ -197,53 +197,3 @@ export default function App() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
-  map: {
-    width: width - 40,
-    height: height / 2,
-    borderRadius: 10,
-    marginTop: 40,
-  },
-  iconContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    width: '100%',
-    marginBottom: 20,
-  },
-  iconItem: {
-    alignItems: 'center',
-    marginTop: 10,
-  },
-  iconText: {
-    marginTop: 5,
-  },
-  nearestPointContainer: {
-    position: 'absolute',
-    bottom: 140,
-    left: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    padding: 10,
-    borderRadius: 10,
-  },
-  nearestPointText: {
-    marginBottom: 5,
-  },
-  selectedPointContainer: {
-    position: 'absolute',
-    bottom: 80,
-    left: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    padding: 10,
-    borderRadius: 10,
-  },
-  selectedPointText: {
-    marginBottom: 5,
-  },
-});
