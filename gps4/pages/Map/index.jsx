@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+<<<<<<< HEAD
 import { Text, View, ScrollView, TouchableOpacity, Modal, Button } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
@@ -8,16 +9,30 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import axios from 'axios';
 import styles from './styles';
 
+=======
+import { StyleSheet, Text, View, Dimensions, TouchableOpacity } from 'react-native';
+import MapView, { Marker } from 'react-native-maps';
+import * as Location from 'expo-location';
+import Icon from 'react-native-vector-icons/FontAwesome'; 
+import { useNavigation } from '@react-navigation/native';
+import styles from './styles';
+
+
+>>>>>>> 5014cddc5f729c01618f2f123ecaa1fa94305a45
 export default function App() {
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [nearestPoint, setNearestPoint] = useState(null);
+<<<<<<< HEAD
   const [sensorDetails, setSensorDetails] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
   const [pontos, setPontos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+=======
+  const [selectedPoint, setSelectedPoint] = useState(null);
+>>>>>>> 5014cddc5f729c01618f2f123ecaa1fa94305a45
   const navigation = useNavigation();
 
   const initialRegion = {
@@ -30,6 +45,7 @@ export default function App() {
   const fixedPoints = [
     {
       id: 1,
+<<<<<<< HEAD
       name: 'Banheiro Feminino',
       latitude: -22.914140,
       longitude: -47.068620,
@@ -45,11 +61,26 @@ export default function App() {
       temp: 23,
       humidity: 55,
       luminosity: 280,
+=======
+      name: 'Banheiro Masculino',
+      latitude: -22.914140,
+      longitude: -47.068620,
+    },
+    {
+      id: 2,
+      name: 'Banheiro Feminino',
+      latitude: -22.914166,
+      longitude: -47.068355,
+>>>>>>> 5014cddc5f729c01618f2f123ecaa1fa94305a45
     }
   ];
 
   useEffect(() => {
+<<<<<<< HEAD
     const getLocation = async () => {
+=======
+    (async () => {
+>>>>>>> 5014cddc5f729c01618f2f123ecaa1fa94305a45
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
         setErrorMsg('Permission to access location was denied');
@@ -72,6 +103,7 @@ export default function App() {
       return () => {
         locationSubscription.remove();
       };
+<<<<<<< HEAD
     };
 
     getLocation();
@@ -123,12 +155,21 @@ export default function App() {
     }
   }
 
+=======
+    })();
+  }, []);
+
+>>>>>>> 5014cddc5f729c01618f2f123ecaa1fa94305a45
   function calculateDistance(lat1, lon1, lat2, lon2) {
     const R = 6371e3;
     const φ1 = (lat1 * Math.PI) / 180;
     const φ2 = (lat2 * Math.PI) / 180;
     const Δφ = ((lat2 - lat1) * Math.PI) / 180;
+<<<<<<< HEAD
     const Δλ = ((lon2 - lon1) * Math.PI) / 180;
+=======
+    const Δλ = ((lon1 - lon2) * Math.PI) / 180;
+>>>>>>> 5014cddc5f729c01618f2f123ecaa1fa94305a45
 
     const a =
       Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
@@ -143,8 +184,12 @@ export default function App() {
   function findNearestPoint(userLocation) {
     let nearestPoint = null;
     let minDistance = Infinity;
+<<<<<<< HEAD
   
     // Verifica os pontos fixos
+=======
+
+>>>>>>> 5014cddc5f729c01618f2f123ecaa1fa94305a45
     fixedPoints.forEach(point => {
       const distance = calculateDistance(
         userLocation.latitude,
@@ -152,12 +197,17 @@ export default function App() {
         point.latitude,
         point.longitude
       );
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 5014cddc5f729c01618f2f123ecaa1fa94305a45
       if (distance < minDistance) {
         minDistance = distance;
         nearestPoint = { ...point, distance };
       }
     });
+<<<<<<< HEAD
   
     // Verifica os pontos dinâmicos da API
     pontos.forEach(point => {
@@ -241,29 +291,75 @@ export default function App() {
     fetchSensorDetails(marker.id);
   }
 
+=======
+
+    return nearestPoint;
+  }
+
+  const handleMarkerPress = (point) => {
+    setSelectedPoint(point);
+  };
+
+  
+>>>>>>> 5014cddc5f729c01618f2f123ecaa1fa94305a45
   let nearestText = '';
   if (nearestPoint) {
     nearestText = `Ponto mais próximo: ${nearestPoint.name}\nDistância: ${nearestPoint.distance.toFixed(2)} metros`;
   }
 
+<<<<<<< HEAD
   return (
     <ScrollView contentContainerStyle={styles.container}>
     <MapView
+=======
+  let selectedPointText = '';
+  if (selectedPoint) {
+    if (selectedPoint.latitude === location?.latitude && selectedPoint.longitude === location?.longitude) {
+      selectedPointText = 'Este é o ponto onde você está!';
+    } else {
+      const distance = calculateDistance(
+        location.latitude,
+        location.longitude,
+        selectedPoint.latitude,
+        selectedPoint.longitude
+      );
+      selectedPointText = `Ponto selecionado: ${selectedPoint.name}\nDistância: ${distance.toFixed(2)} metros`;
+    }
+  }
+
+  let locationText = 'Esperando...';
+  if (errorMsg) {
+    locationText = errorMsg;
+  } else if (location) {
+    // locationText = `Latitude: ${location.latitude}, Longitude: ${location.longitude}`;
+  }
+  
+  return (
+    <View style={styles.container}>
+      <MapView
+>>>>>>> 5014cddc5f729c01618f2f123ecaa1fa94305a45
         style={styles.map}
         initialRegion={initialRegion}
         showsUserLocation={true}
       >
+<<<<<<< HEAD
         {/* Renderiza os pontos fixos */}
+=======
+>>>>>>> 5014cddc5f729c01618f2f123ecaa1fa94305a45
         {fixedPoints.map(point => (
           <Marker
             key={point.id}
             coordinate={{ latitude: point.latitude, longitude: point.longitude }}
+<<<<<<< HEAD
             title={point.name}
             description={`Temp: ${point.temp}ºC | Humidity: ${point.humidity}% | Luminosity: ${point.luminosity} lux`}
+=======
+>>>>>>> 5014cddc5f729c01618f2f123ecaa1fa94305a45
             pinColor="blue"
             onPress={() => handleMarkerPress(point)}
           />
         ))}
+<<<<<<< HEAD
 
         {/* Renderiza os pontos dinâmicos vindos da API */}
         {pontos.map(point => (
@@ -305,10 +401,37 @@ export default function App() {
         </View>
         <View style={styles.iconItem}>
           <Icon name="users" size={30} color="blue" />
+=======
+        {location && (
+          <Marker
+            coordinate={{ latitude: location.latitude, longitude: location.longitude }}
+            pinColor="red"
+          />
+        )}
+      </MapView>
+      <View style={styles.iconContainer}>
+        <TouchableOpacity onPress={() => navigation.navigate('Salas')}>
+          <View style={styles.iconItem}>
+            <Icon name="graduation-cap" size={30} color="red" />
+            <Text style={styles.iconText}>Salas</Text>
+          </View>
+        </TouchableOpacity>
+        <View style={styles.iconItem}>
+          <Icon name="flask" size={30} color="red" />
+          <Text style={styles.iconText}>Laboratório</Text>
+        </View>
+        <View style={styles.iconItem}>
+          <Icon name="book" size={30} color="red" />
+          <Text style={styles.iconText}>Biblioteca</Text>
+        </View>
+        <View style={styles.iconItem}>
+          <Icon name="users" size={30} color="red" />
+>>>>>>> 5014cddc5f729c01618f2f123ecaa1fa94305a45
           <Text style={styles.iconText}>Corredor</Text>
         </View>
       </View>
 
+<<<<<<< HEAD
       {nearestPoint && (
         <View style={[styles.nearestPointContainer, { marginTop: 100 }]}>
           <Text style={styles.nearestPointText}>
@@ -355,3 +478,26 @@ export default function App() {
   );
 }
 
+=======
+      <Text>{locationText}</Text>
+      {nearestPoint && (
+        <View style={styles.nearestPointContainer}>
+          <Text style={styles.nearestPointText}>
+            {nearestText}
+          </Text>
+        </View>
+      )}
+      {selectedPoint && (
+        <TouchableOpacity
+          style={styles.selectedPointContainer}
+          onPress={() => setSelectedPoint(null)}
+        >
+          <Text style={styles.selectedPointText}>
+            {selectedPointText}
+          </Text>
+        </TouchableOpacity>
+      )}
+    </View>
+  );
+}
+>>>>>>> 5014cddc5f729c01618f2f123ecaa1fa94305a45

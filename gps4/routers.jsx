@@ -6,9 +6,13 @@ import { Feather } from "@expo/vector-icons";
 import SignIn from './pages/signIn/index';
 import Home from './pages/home/index';
 import Map from './pages/Map/index';
+<<<<<<< HEAD
 import Salas from './pages/salas/index';
 import SignUp from './pages/signUp/index';
 import Sensor from './pages/sensores/index';
+=======
+import Salas from './pages/salas/index'; 
+>>>>>>> 5014cddc5f729c01618f2f123ecaa1fa94305a45
 
 const Pilha = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -86,6 +90,7 @@ export default function Routers() {
                     component={Salas}
                     options={{ headerShown: false }}
                 />
+<<<<<<< HEAD
                 <Pilha.Screen
                     name="SignUp"
                     component={SignUp}
@@ -96,6 +101,8 @@ export default function Routers() {
                     component={Sensor}
                     options={{ headerShown: false }}
                 />
+=======
+>>>>>>> 5014cddc5f729c01618f2f123ecaa1fa94305a45
             </Pilha.Navigator>
         </NavigationContainer>
     )

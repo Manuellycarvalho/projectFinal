@@ -9,7 +9,10 @@
     "web": "expo start --web"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@hookform/resolvers": "^3.6.0",
+=======
+>>>>>>> 5014cddc5f729c01618f2f123ecaa1fa94305a45
     "@react-native-async-storage/async-storage": "^1.23.1",
     "@react-navigation/bottom-tabs": "^6.5.20",
     "@react-navigation/native": "^6.1.17",
@@ -20,12 +23,19 @@
     "expo-status-bar": "~1.12.1",
     "ngrok": "4.3.3",
     "react": "18.2.0",
+<<<<<<< HEAD
     "react-hook-form": "^7.52.0",
     "react-native": "0.74.1",
     "react-native-maps": "1.14.0",
     "react-native-snap-carousel": "^3.9.1",
     "react-native-vector-icons": "^10.1.0",
     "zod": "^3.23.8"
+=======
+    "react-native": "0.74.1",
+    "react-native-maps": "1.14.0",
+    "react-native-snap-carousel": "^3.9.1",
+    "react-native-vector-icons": "^10.1.0"
+>>>>>>> 5014cddc5f729c01618f2f123ecaa1fa94305a45
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

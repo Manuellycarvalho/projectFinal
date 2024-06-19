@@ -1,13 +1,20 @@
 import React from 'react';
+<<<<<<< HEAD
 import { View, Text, Button, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
 
+=======
+import { View, Text, Button, StyleSheet, TextInput } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import styles from './styles';
+>>>>>>> 5014cddc5f729c01618f2f123ecaa1fa94305a45
 const Home = ({ navigation }) => {
   const handleSignOut = () => {
     navigation.navigate('SignIn');
   };
 
+<<<<<<< HEAD
   const navigateToMap = () => {
     navigation.navigate('Map');
   };
@@ -33,6 +40,23 @@ const Home = ({ navigation }) => {
           <Icon name="microchip" size={50} color="green" />
           <Text style={styles.iconText}>Sensores</Text>
         </TouchableOpacity>
+=======
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        {/* <Text style={styles.headerText}>Bem-vindo à tela Home!</Text> */}
+        <TextInput
+          style={styles.searchInput}
+          placeholder="Pesquisar..."
+      
+        />
+      </View>
+      <View style={styles.gridContainer}>
+        <View style={styles.gridItem}>
+          <Icon name="map" size={50} color="blue" />
+          <Text style={styles.iconText}>Mapa</Text>
+        </View>
+>>>>>>> 5014cddc5f729c01618f2f123ecaa1fa94305a45
         <View style={styles.gridItem}>
           <Icon name="thermometer-half" size={50} color="red" />
           <Text style={styles.iconText}>Temperatura</Text>
@@ -51,4 +75,8 @@ const Home = ({ navigation }) => {
   );
 };
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5014cddc5f729c01618f2f123ecaa1fa94305a45
 export default Home;

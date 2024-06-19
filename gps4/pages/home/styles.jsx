@@ -6,11 +6,19 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       padding: 16,
+<<<<<<< HEAD
       backgroundColor: '#c99cf3',
     },
     header: {
       width: '100%',
       backgroundColor: '#c99cf3',
+=======
+      backgroundColor: '#40E0D0',
+    },
+    header: {
+      width: '100%',
+      backgroundColor: '#40E0D0',
+>>>>>>> 5014cddc5f729c01618f2f123ecaa1fa94305a45
       paddingVertical: 10,
       marginBottom: 20,
       borderRadius: 10,
