@@ -1,68 +1,71 @@
-import { StyleSheet, Dimensions } from 'react-native';
-
-const { width, height } = Dimensions.get('window');
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    backgroundColor: '#8a2be2',
-    padding: 20,
+    backgroundColor: '#fff', // Cor de fundo branca
   },
-
   map: {
-    width: width - 40,
-    height: height / 2,
-    borderRadius: 10,
-    marginTop: 20,
+    width: '100%',
+    height: 400, // Altura do mapa
   },
   iconContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
     alignItems: 'center',
-    width: '100%',
-    marginBottom: 20,
   },
   iconItem: {
-  flexDirection: 'row', // Para alinhar ícone e texto na horizontal
-  alignItems: 'center', // Para centralizar verticalmente
-  marginRight: 20, // Espaçamento à direita entre os ícones
-},
-
+    alignItems: 'center',
+  },
   iconText: {
     marginTop: 5,
-    color: '#fff',
+    color: 'blue', // Cor do texto dos ícones
   },
   nearestPointContainer: {
-    position: 'absolute',
-    marginTop: 100,
-    bottom: 160,
-    left: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    padding: 10,
-    borderRadius: 10,
-    width: width - 40,
     alignItems: 'center',
   },
   nearestPointText: {
-    marginBottom: 5,
-    color: '#333',
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    textAlign: 'center',
   },
-  selectedPointContainer: {
-    position: 'absolute',
-    bottom: 100,
-    left: 20,
-    marginTop: 30, // Margem superior adicional apenas para o segundo ícone
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    padding: 10,
-    borderRadius: 10,
-    width: width - 40,
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fundo semi-transparente
   },
-  selectedPointText: {
-    marginBottom: 5,
-    color: '#333',
+  modalView: {
+    backgroundColor: '#fff',
+    padding: 20,
+    borderRadius: 10,
+    width: '80%',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  openButton: {
+    marginTop: 10,
+    padding: 10,
+    borderRadius: 5,
+  },
+  textStyle: {
+    color: '#fff',
+    textAlign: 'center',
   },
 });
 

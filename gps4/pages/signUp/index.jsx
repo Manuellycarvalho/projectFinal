@@ -13,29 +13,21 @@ export default function SignUp() {
     const navigation = useNavigation();
 
     const handleRegistro = async () => {
-        try {
-            const accessToken = await AsyncStorage.getItem('access_token'); // Recupera o token de AsyncStorage
-
-            const response = await axios.post(
-                'https://manuellycarvalho.pythonanywhere.com/api/create_user/',
+            try {
+              const response = await axios.post(
+                'https://manuellycarvalho.pythonanywhere.com/api/token/', 
                 {
-                    username: usuario,
-                    email: email,
-                    password: senha,
-                },
-                {
-                    headers: {
-                        Authorization: `Bearer ${accessToken}`,
-                        'Content-Type': 'application/json', // Define o tipo de conteúdo
-                    },
+                  username: username,
+                  email: email,
+                  password: password,
                 }
-            );
-
+              );
+        
             setShowAlert(true);
 
             setTimeout(() => {
                 setShowAlert(false);
-                navigation.navigate('Login'); // Navega para a tela de login após o registro
+                navigation.navigate('SignIn'); // Navega para a tela de login após o registro
             }, 2000);
         } catch (error) {
             console.error('Erro no cadastro de usuário', error);

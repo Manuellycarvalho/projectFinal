@@ -22,7 +22,7 @@ const LoginScreen = ({ navigation }) => {
 
       const token = response.data.access;
       await AsyncStorage.setItem('userToken', token);
-      navigation.navigate('Home'); // Navega para a tela 'Home' após o login bem-sucedido
+      navigation.navigate('Home');
     } catch (error) {
       console.error(error);
       Alert.alert('Erro de autenticação', 'Credenciais inválidas. Verifique seu usuário e senha.');
